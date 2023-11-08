@@ -1,3 +1,59 @@
+![Open-Audio TTS OG Image](public/og-image.png)
+
+# Open-Audio TTS
+
+Open-Audio TTS is a web application that allows users to convert text into natural-sounding speech. Powered by OpenAI's text-to-speech models, this tool offers an intuitive user interface built with Chakra UI, providing a seamless experience for generating and downloading speech audio files.
+
+## Features
+
+- **Text-to-Speech**: Convert any text into speech with high-quality voices powered by OpenAI's TTS models.
+- **Customizable Voices**: Choose from a variety of voices to find the one that best suits your needs.
+- **Adjustable Speed**: Control the speed of the speech to match your preferred listening pace.
+- **BYO**: Bring your Own (BYO) API keys, no data is stored on server side.
+- **Downloadable Audio**: Easily download the generated speech as an MP3 file directly from the browser.
+- **User-Friendly Interface**: Built with responsiveness in mind, offering a comfortable experience across different devices.
+
+## Installation
+
+To set up the project locally, follow these steps:
+
+1. Clone the repository to your local machine.
+2. Navigate to the project directory.
+3. Install dependencies with `npm install`.
+4. Start the development server with `npm start`.
+5. Open `http://localhost:3000` to view it in the browser.
+
+## Usage
+
+To use Open-Audio TTS, simply:
+
+1. Enter your OpenAI API key in the provided field.
+2. Type or paste the text you wish to convert into the 'Input Text' field.
+3. Select the voice and adjust the speed as desired.
+4. Click on 'Create Speech' to generate the audio.
+5. Once the audio is generated, use the controls to play it or click 'Download MP3' to save it.
+
+## Contributing
+
+Contributions are welcome! If you have a suggestion or an issue, please use the [issues](#) page to let us know.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE.md) file for details.
+
+## Acknowledgments
+
+- Thanks to OpenAI for providing the text-to-speech API.
+- Chakra UI for the beautiful component library.
+- <a target="_blank" href="https://icons8.com/icon/PgPOu9C2G4Dq/speech-to-text">Speech To Text</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+
+
+
+---
+Powered by OpenAI TTS
+
+---
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
