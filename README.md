@@ -1,5 +1,8 @@
 ![Open-Audio TTS OG Image](public/og-image.png)
 
+Check out the live website: [OpenAudio.ai](https://openaudio.ai)
+
+
 # Open-Audio TTS
 
 Open-Audio TTS is a web application that allows users to convert text into natural-sounding speech. Powered by OpenAI's text-to-speech models, this tool offers an intuitive user interface built with Chakra UI, providing a seamless experience for generating and downloading speech audio files.
