@@ -1,4 +1,4 @@
-![Open-Audio TTS OG Image](public/og-image-thumbnail.png)
+![Open-Audio TTS OG Image](public/og-image.png)
 
 # Open-Audio TTS
 
