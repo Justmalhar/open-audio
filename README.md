@@ -33,9 +33,13 @@ To use Open-Audio TTS, simply:
 4. Click on 'Create Speech' to generate the audio.
 5. Once the audio is generated, use the controls to play it or click 'Download MP3' to save it.
 
+# Demo
+
+![Open-Audio TTS Demo](public/demo.png)
+
 ## Contributing
 
-Contributions are welcome! If you have a suggestion or an issue, please use the [issues](#) page to let us know.
+Contributions are welcome! If you have a suggestion or an issue, please use the [issues](#) page to let me know.
 
 ## License
 
