@@ -142,7 +142,12 @@ export default function Home() {
             <VStack spacing={6} as="form" onSubmit={handleSubmit} width="full" maxW="md">
             <Box bg='black' w='100%' p={5} borderTopRadius="md" boxShadow="lg">
   <Heading textAlign="center" color="white">Open-Audio TTS</Heading>
-  <Text fontSize="xs" color="gray.100" textAlign="center" mt={2}>Powered by OpenAI TTS</Text>
+  <Text fontSize="xs" color="gray.100" textAlign="center" mt={2}>Powered by OpenAI TTS </Text>
+  <Text fontSize="xs" color="gray.100" textAlign="center" mt={2} fontWeight={'700'}>
+        <a href="https://github.com/Justmalhar/open-audio" target="_blank" rel="noopener noreferrer" style={{ color: 'gray.100' }}>
+          View on GitHub
+        </a>
+      </Text>
 </Box>
               <Grid
                 templateColumns={{ md: '4fr 1fr' }} // 80-20 ratio
