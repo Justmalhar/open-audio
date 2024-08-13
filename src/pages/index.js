@@ -31,7 +31,7 @@ import { saveAs } from 'file-saver'; // You will need to install file-saver: npm
 
 
 export default function Home() {
-  const apiKeyFromEnv = process.env.NEXT_PUBLIC_OPENAI_API_KEY;
+  const apiKeyFromEnv = process.env.OPENAI_API_KEY;
   const [apiKeyInput, setApiKey] = useState(apiKeyFromEnv || '');
   const [model, setModel] = useState('tts-1');
   const [inputText, setInputText] = useState('');
