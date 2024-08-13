@@ -31,7 +31,8 @@ import { saveAs } from 'file-saver'; // You will need to install file-saver: npm
 
 
 export default function Home() {
-  const [apiKeyInput, setApiKey] = useState(process.env.NEXT_PUBLIC_OPENAI_API_KEY || '');
+  const apiKeyFromEnv = process.env.NEXT_PUBLIC_OPENAI_API_KEY;
+  const [apiKeyInput, setApiKey] = useState(apiKeyFromEnv || '');
   const [model, setModel] = useState('tts-1');
   const [inputText, setInputText] = useState('');
   const [voice, setVoice] = useState('alloy');
@@ -164,6 +165,7 @@ export default function Home() {
                     onChange={(e) => setApiKey(e.target.value)}
                     variant="outline"
                     borderColor="black"
+                    disabled={!!apiKeyFromEnv} // Disable the input if apiKeyFromEnv is truthy
                   />
                 </FormControl>
 
