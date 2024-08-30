@@ -26,6 +26,14 @@ To set up the project locally, follow these steps:
 4. Start the development server with `npm run dev`.
 5. Open `http://localhost:3000` to view it in the browser.
 
+## How to use Environment Variable
+1. Copy the `.env.example` file to:
+    - .env.local file: For Local Development (This should not be committed to Git) - `cp .env.example .env.local`
+    - .env: For Production Deployment (This can be via Vercel Environment Variables under your Project's settings page. `cp .env.example .env`
+2. Add your OPENAI_API_KEY by creating or copying your OpenAI API key under the [API keys](https://platform.openai.com/api-keys) section on OpenAI's website.
+3. Save, restart your app and run `npm run dev`. Your API key will now be set from the Environment Variables instead of the UI and UI element will be disabled.
+
+
 ## Usage
 
 To use Open-Audio TTS, simply:
