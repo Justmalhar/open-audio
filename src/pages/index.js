@@ -35,7 +35,7 @@ export default function Home() {
   const [apiKeyInput, setApiKey] = useState('');
 
   useEffect(() => {
-    if (apiKeyFromEnv) {
+    if (!!apiKeyFromEnv) {
       setApiKey(apiKeyFromEnv);
     }
   }, [apiKeyFromEnv]);
