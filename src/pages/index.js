@@ -34,9 +34,12 @@ export default function Home() {
   const apiKeyFromEnv = process.env.OPENAI_API_KEY;
   const [apiKeyInput, setApiKey] = useState('');
 
-  if (apiKeyFromEnv) {
-    setApiKey = apiKeyFromEnv;
-  }
+  useEffect(() => {
+    if (apiKeyFromEnv) {
+      setApiKey(apiKeyFromEnv);
+    }
+  }, [apiKeyFromEnv]);
+  
   const [model, setModel] = useState('tts-1');
   const [inputText, setInputText] = useState('');
   const [voice, setVoice] = useState('alloy');
