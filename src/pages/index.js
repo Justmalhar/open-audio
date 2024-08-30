@@ -78,7 +78,8 @@ export default function Home() {
     try {
       // Define the request headers
       const headers = new Headers();
-      headers.append("Authorization", `Bearer ${apiKeyInput}`);
+      const apiKey = apiKeyFromEnv && !!apiKeyFromEnv ? apiKeyFromEnv : apiKeyInput;
+      headers.append("Authorization", `Bearer ${apiKey}`);
       headers.append("Content-Type", "application/json");
 
       // Define the request body
