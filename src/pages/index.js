@@ -23,26 +23,18 @@ import {
   Box,
   Tooltip,
   Switch,
-  FormHelperText
-} from '@chakra-ui/react';
+  FormHelperText,
+} from "@chakra-ui/react";
 import OpenAI from "openai";
-import { useState, useRef, useEffect } from 'react';
-import { saveAs } from 'file-saver'; // You will need to install file-saver: npm install file-saver
-
+import { useState, useRef, useEffect } from "react";
+import { saveAs } from "file-saver"; // You will need to install file-saver: npm install file-saver
 
 export default function Home() {
-  const apiKeyFromEnv = process.env.OPENAI_API_KEY;
-  const [apiKeyInput, setApiKey] = useState('');
+  const [apiKeyInput, setApiKey] = useState("");
 
-  useEffect(() => {
-    if (!!apiKeyFromEnv) {
-      setApiKey(apiKeyFromEnv);
-    }
-  }, [apiKeyFromEnv]);
-  
-  const [model, setModel] = useState('tts-1');
-  const [inputText, setInputText] = useState('');
-  const [voice, setVoice] = useState('alloy');
+  const [model, setModel] = useState("tts-1");
+  const [inputText, setInputText] = useState("");
+  const [voice, setVoice] = useState("alloy");
   const [speed, setSpeed] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [sliderValue, setSliderValue] = useState(1);
@@ -62,13 +54,12 @@ export default function Home() {
   const toast = useToast();
 
   const handleModelToggle = () => {
-    setModel(model === 'tts-1' ? 'tts-1-hd' : 'tts-1');
+    setModel(model === "tts-1" ? "tts-1-hd" : "tts-1");
   };
 
   const handleDownload = () => {
-    saveAs(audioUrl, 'speech.mp3'); // This will save the file as "speech.mp3"
+    saveAs(audioUrl, "speech.mp3"); // This will save the file as "speech.mp3"
   };
-
 
   // Assuming `openai.audio.speech.create` returns a stream or binary data
   const handleSubmit = async (e) => {
@@ -78,7 +69,7 @@ export default function Home() {
     try {
       // Define the request headers
       const headers = new Headers();
-      const apiKey = apiKeyFromEnv && !!apiKeyFromEnv ? apiKeyFromEnv : apiKeyInput;
+      const apiKey = apiKeyInput;
       headers.append("Authorization", `Bearer ${apiKey}`);
       headers.append("Content-Type", "application/json");
 
@@ -87,12 +78,12 @@ export default function Home() {
         model: model,
         input: inputText,
         voice: voice,
-        speed: speed.toFixed(1)
+        speed: speed.toFixed(1),
       });
 
       // Make the fetch request to the OpenAI API
-      const response = await fetch('https://api.openai.com/v1/audio/speech', {
-        method: 'POST',
+      const response = await fetch("https://api.openai.com/v1/audio/speech", {
+        method: "POST",
         headers: headers,
         body: body,
       });
@@ -111,13 +102,12 @@ export default function Home() {
 
       // Update your component's state or context
       setAudioUrl(audioUrl);
-
     } catch (error) {
       console.error("Error:", error);
       toast({
-        title: 'An error occurred',
+        title: "An error occurred",
         description: error.message,
-        status: 'error',
+        status: "error",
         duration: 5000,
         isClosable: true,
       });
@@ -126,10 +116,6 @@ export default function Home() {
     }
   };
 
-
-
-
-
   const handleInputChange = (e) => {
     if (e.target.value.length <= 4096) {
       setInputText(e.target.value);
@@ -137,9 +123,15 @@ export default function Home() {
   };
 
   return (
-    <Container bg={'gray.100'} maxW="container">
+    <Container bg={"gray.100"} maxW="container">
       <Container centerContent p={4} maxW="container.md">
-        <Flex direction="column" align="center" justify="center" minH="100vh" w="full">
+        <Flex
+          direction="column"
+          align="center"
+          justify="center"
+          minH="100vh"
+          w="full"
+        >
           <Box
             bg="white" // Assuming the card is white
             borderRadius="lg" // Rounded corners
@@ -148,62 +140,85 @@ export default function Home() {
             w="full" // Full width of the parent
             maxW="md" // Maximum width
           >
-            <VStack spacing={6} as="form" onSubmit={handleSubmit} width="full" maxW="md">
-            <Box bg='black' w='100%' p={5} borderTopRadius="md" boxShadow="lg">
-  <Heading textAlign="center" color="white">Open-Audio TTS</Heading>
-  <Text fontSize="xs" color="gray.100" textAlign="center" mt={2}>Powered by OpenAI TTS </Text>
-  <Text fontSize="xs" color="gray.100" textAlign="center" mt={2} fontWeight={'700'}>
-        <a href="https://github.com/Justmalhar/open-audio" target="_blank" rel="noopener noreferrer" style={{ color: 'gray.100' }}>
-          View on GitHub
-        </a>
-      </Text>
-</Box>
+            <VStack
+              spacing={6}
+              as="form"
+              onSubmit={handleSubmit}
+              width="full"
+              maxW="md"
+            >
+              <Box
+                bg="black"
+                w="100%"
+                p={5}
+                borderTopRadius="md"
+                boxShadow="lg"
+              >
+                <Heading textAlign="center" color="white">
+                  Open-Audio TTS
+                </Heading>
+                <Text fontSize="xs" color="gray.100" textAlign="center" mt={2}>
+                  Powered by OpenAI TTS{" "}
+                </Text>
+                <Text
+                  fontSize="xs"
+                  color="gray.100"
+                  textAlign="center"
+                  mt={2}
+                  fontWeight={"700"}
+                >
+                  <a
+                    href="https://github.com/Justmalhar/open-audio"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ color: "gray.100" }}
+                  >
+                    View on GitHub
+                  </a>
+                </Text>
+              </Box>
               <Grid
-                templateColumns={{ md: '4fr 1fr' }} // 80-20 ratio
+                templateColumns={{ md: "4fr 1fr" }} // 80-20 ratio
                 gap={4}
                 width="full"
               >
                 <FormControl isRequired>
-                  <FormLabel htmlFor='api-key'>API Key</FormLabel>
+                  <FormLabel htmlFor="api-key">API Key</FormLabel>
                   <Input
-                    id='api-key'
-                    placeholder='Enter your OpenAI API key'
-                    type='password'
+                    id="api-key"
+                    placeholder="Enter your OpenAI API key"
+                    type="password"
                     value={apiKeyInput}
                     onChange={(e) => setApiKey(e.target.value)}
                     variant="outline"
                     borderColor="black"
-                    disabled={!!apiKeyFromEnv} // Disable the input if apiKeyFromEnv is truthy
                   />
                 </FormControl>
 
                 <FormControl>
                   <VStack align="start" spacing={0}>
-                    <FormLabel htmlFor='model'>
-                      Quality
-                    </FormLabel>
-                    <HStack align="center" h='100%' mx='0' mt='2' >
+                    <FormLabel htmlFor="model">Quality</FormLabel>
+                    <HStack align="center" h="100%" mx="0" mt="2">
                       <Switch
-                        id='model'
+                        id="model"
                         colorScheme="blackAlpha"
-                        isChecked={model === 'tts-1-hd'}
+                        isChecked={model === "tts-1-hd"}
                         onChange={handleModelToggle}
                         size="md" // Optional: if you want a larger switch
                       />
-                      <FormHelperText textAlign="center" mt={'-1'}>
-                        {model === 'tts-1' ? 'High' : 'HD'}
+                      <FormHelperText textAlign="center" mt={"-1"}>
+                        {model === "tts-1" ? "High" : "HD"}
                       </FormHelperText>
                     </HStack>
                   </VStack>
                 </FormControl>
-
               </Grid>
 
               <FormControl isRequired>
-                <FormLabel htmlFor='input-text'>Input Text</FormLabel>
+                <FormLabel htmlFor="input-text">Input Text</FormLabel>
                 <Textarea
-                  id='input-text'
-                  placeholder='Enter the text you want to convert to speech'
+                  id="input-text"
+                  placeholder="Enter the text you want to convert to speech"
                   value={inputText}
                   onChange={handleInputChange}
                   resize="vertical"
@@ -217,9 +232,9 @@ export default function Home() {
 
               <HStack width="full" justifyContent="space-between">
                 <FormControl isRequired width="45%">
-                  <FormLabel htmlFor='voice'>Voice</FormLabel>
+                  <FormLabel htmlFor="voice">Voice</FormLabel>
                   <Select
-                    id='voice'
+                    id="voice"
                     value={voice}
                     onChange={(e) => setVoice(e.target.value)}
                     variant="outline"
@@ -227,22 +242,22 @@ export default function Home() {
                     borderColor="black"
                     focusBorderColor="black"
                     colorScheme="blackAlpha"
-                    _hover={{ borderColor: 'gray.400' }} // Optional: style for hover state
+                    _hover={{ borderColor: "gray.400" }} // Optional: style for hover state
                   >
                     {/* List of supported voices */}
-                    <option value='alloy'>Alloy</option>
-                    <option value='echo'>Echo</option>
-                    <option value='fable'>Fable</option>
-                    <option value='onyx'>Onyx</option>
-                    <option value='nova'>Nova</option>
-                    <option value='shimmer'>Shimmer</option>
+                    <option value="alloy">Alloy</option>
+                    <option value="echo">Echo</option>
+                    <option value="fable">Fable</option>
+                    <option value="onyx">Onyx</option>
+                    <option value="nova">Nova</option>
+                    <option value="shimmer">Shimmer</option>
                   </Select>
                 </FormControl>
 
-                <FormControl width="40%" mt='-15'>
-                  <FormLabel htmlFor='speed'>Speed </FormLabel>
+                <FormControl width="40%" mt="-15">
+                  <FormLabel htmlFor="speed">Speed </FormLabel>
                   <Slider
-                    id='speed'
+                    id="speed"
                     defaultValue={1}
                     min={0.25}
                     max={4}
@@ -251,18 +266,18 @@ export default function Home() {
                     onMouseEnter={() => setShowTooltip(true)}
                     onMouseLeave={() => setShowTooltip(false)}
                     ref={sliderRef}
-                    aria-label='slider-ex-1'
+                    aria-label="slider-ex-1"
                   >
                     <SliderTrack bg="gray">
                       <SliderFilledTrack bg="black" />
                     </SliderTrack>
                     <Tooltip
                       hasArrow
-                      bg='black'
-                      color='white'
-                      placement='bottom'
+                      bg="black"
+                      color="white"
+                      placement="bottom"
                       isOpen={showTooltip}
-                      label={`${(sliderValue).toFixed(2)}x`}
+                      label={`${sliderValue.toFixed(2)}x`}
                     >
                       <SliderThumb />
                     </Tooltip>
@@ -272,11 +287,11 @@ export default function Home() {
 
               <Button
                 size="lg"
-                bg='black'
-                color={'white'}
-                colorScheme='black'
+                bg="black"
+                color={"white"}
+                colorScheme="black"
                 borderColor="black"
-                type='submit'
+                type="submit"
                 isLoading={isSubmitting}
                 loadingText="Generating..."
               >

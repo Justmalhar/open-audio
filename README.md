@@ -26,7 +26,7 @@ To set up the project locally, follow these steps:
 4. Start the development server with `npm run dev`.
 5. Open `http://localhost:3000` to view it in the browser.
 
-## How to use Environment Variable
+## How to use Environment Variable (Disabled and reverted to keep things purely on Client Side)
 1. Copy the `.env.example` file to:
     - .env.local file: For Local Development (This should not be committed to Git) - `cp .env.example .env.local`
     - .env: For Production Deployment (This can be via Vercel Environment Variables under your Project's settings page. `cp .env.example .env`
