@@ -16,6 +16,13 @@ Open-Audio TTS is a web application that allows users to convert text into natur
 - **Downloadable Audio**: Easily download the generated speech as an MP3 file directly from the browser.
 - **User-Friendly Interface**: Built with responsiveness in mind, offering a comfortable experience across different devices.
 
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Justmalhar/open-audio)
+
 ## Installation
 
 To set up the project locally, follow these steps:
