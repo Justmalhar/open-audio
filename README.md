@@ -1,6 +1,10 @@
 ![Open-Audio TTS OG Image](public/og-image.png)
 
-Check out the live website: [OpenAudio.ai](https://openaudio.ai)
+## Update
+
+Project Update: [OpenAudio.ai](https://openaudio.ai) is now sunset as I’m moving to [TTS Studio Github](https://github.com/Justmalhar/tts-studio) because of increasing .ai domain costs. [TTS Studio](https://github.com/Justmalhar/tts-studio) has all the models from popular providers like Replicate, ElevenLabs and OpenAI with a better UI and faster responses. 
+
+Huge thanks for two years of support and stars. If you’d like to buy the OpenAudio.ai domain, DM me on X [@justmalhar](https://www.x.com/justmalhar); new site: [tts-studio.vercel.app](https://tts-studio.vercel.app)
 
 
 # Open-Audio TTS
